@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Book Store</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        function toggleCreator() {
+            const section = document.getElementById("creatorSection");
+            section.style.display =
+                section.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Title Section -->
+    <header class="header">
+        <h1>Online Book Store</h1>
+        <p class="tagline">A place where knowledge meets convenience</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2 align="center">About Our Website</h2>
+        <p>
+            Our Online Book Store is a user-friendly web platform designed to provide easy access to books in a digital environment.
+            It allows customers to securely log in, explore available resources, and share feedback through a simple and intuitive 
+            interface. The system also includes a dedicated admin module that enables efficient management of platform operations 
+            and user interactions. Built using Node.js, Express, and MongoDB, the application follows a modular and scalable architecture. The platform emphasizes usability, security, and maintainability, making it a practical implementation of modern web development concepts and a strong foundation for future enhancements.
+        </p>
+    </section>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <h2>Login</h2>
+        <div class="button-group">
+            <a href="/customer/login" class="btn customer-btn">Login as Customer</a>
+            <a href="/admin/login" class="btn admin-btn">Login as Admin</a>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="about" style="margin-top:40px;">
+        <h2 align="center">Feedback</h2>
+        <p>We would love to hear your feedback.</p>
+
+        <form action="/feedback" method="POST" class="feedback-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="feedback" placeholder="Your Feedback" required>
+
+
+            <button type="submit" class="btn other-btn">
+                Submit
+            </button>
+        </form>
+    </section>
+
+    <!-- About the Creator -->
+    <section class="login-section" style="margin-top:40px;">
+        <button class="btn other-btn" onclick="toggleCreator()">
+            About the Creator
+        </button>
+
+        <div id="creatorSection" class="creator-box" style="display:none;">
+            <p><strong>Saharsh Ojha</strong></p>
+            <p>
+                Backend development, database design, routing,
+                and overall system integration.
+            </p>
+
+            <br>
+
+            <p><strong>Anurag Mishra</strong></p>
+            <p>
+                Frontend structure, UI enhancement ideas,
+                testing, and documentation support.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section class="login-section" style="margin-top:40px;">
+    <h2>Contact Us</h2>
+
+    <div class="button-group">
+        <!-- Call Option -->
+        <a href="tel:+918810724495" class="btn other-btn">
+            📞 Call Us
+        </a>
+
+        <!-- Mail Option -->
+        <a href="mailto:ojhasaharsh@gmail.com" class="btn other-btn">
+            ✉️ Email Us
+        </a>
+    </div>
+</section>
+
+
+</div>
+
+</body>
+</html>
+

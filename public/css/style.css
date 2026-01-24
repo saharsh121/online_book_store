@@ -1,0 +1,207 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 900px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: slideDown 1s ease;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* About Section */
+.about {
+    margin-bottom: 40px;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* Login Section */
+.login-section {
+    text-align: center;
+}
+
+.login-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(237, 214, 214, 0.3);
+}
+
+/* Customer Button */
+.customer-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+}
+
+.customer-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.6);
+}
+
+/* Admin Button */
+.admin-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+}
+
+.admin-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.6);
+}
+
+.other-btn {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #000;
+}
+.other-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(79, 197, 229, 0.6);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* Feedback form alignment & style */
+.feedback-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Input fields */
+.feedback-form input {
+    background: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    min-width: 180px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus animation */
+.feedback-form input:focus {
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Submit button override (cleaner look) */
+.feedback-form .btn {
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.35s ease;
+}
+
+/* Button hover */
+.feedback-form .btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 198, 255, 0.6);
+}
+
+/* Remove default button border & focus outline */
+button,
+button:focus,
+button:active {
+    outline: none;
+    border: none;
+}
+
+/* Also remove focus ring added by some browsers */
+.btn:focus,
+.btn:active {
+    outline: none;
+    box-shadow: none;
+}
+.btn:focus {
+    box-shadow: 0 0 12px rgba(255, 200, 0, 0.6);
+}
