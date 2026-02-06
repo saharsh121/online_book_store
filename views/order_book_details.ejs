@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordered Book Details</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="page-title">Ordered Book Details</h2>
+
+    <!-- SCROLLABLE ORDERS CONTAINER -->
+    <div style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+
+      <% if (orders && orders.length > 0) { %>
+
+        <% orders.forEach(order => { %>
+
+          <div class="order-card">
+
+            <!-- CUSTOMER DETAILS -->
+            <h3>Customer Details</h3>
+            <p><strong>Name:</strong> <%= order.customerName %></p>
+            <p><strong>Phone:</strong> <%= order.customerPhone %></p>
+            <p><strong>Address:</strong> <%= order.deliveryAddress %></p>
+
+            <!-- PAYMENT & DATE -->
+            <p><strong>Payment Method:</strong> <%= order.paymentMethod %></p>
+            <p><strong>Order Date:</strong> <%= order.createdAt.toDateString() %></p>
+
+            <!-- BOOKS ORDERED -->
+            <h4>Books Ordered</h4>
+            <ul>
+              <% order.items.forEach(item => { %>
+                <li>
+                  <strong><%= item.title %></strong> |
+                  Price: ₹ <%= item.price %> |
+                  Quantity: <%= item.quantity %>
+                </li>
+              <% }) %>
+            </ul>
+
+            <!-- TOTAL -->
+            <p><strong>Total Amount:</strong> ₹ <%= order.totalAmount %></p>
+
+            <!-- PACKING STATUS -->
+            <form action="/admin/mark-packed/<%= order._id %>" method="post">
+              <label>
+                <input 
+                  type="checkbox"
+                  onchange="this.form.submit()"
+                  <%= order.isPacked ? "checked" : "" %>
+                >
+                Order Packed
+              </label>
+            </form>
+
+          </div>
+
+        <% }) %>
+
+      <% } else { %>
+        <p>No orders available.</p>
+      <% } %>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

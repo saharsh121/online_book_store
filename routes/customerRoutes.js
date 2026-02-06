@@ -32,7 +32,10 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    res.render("customer_main", { customer });
+    // ✅ IMPORTANT CHANGE
+    // Do NOT render customer_main directly
+    // Redirect to route that loads books
+    res.redirect("/customer/main");
 
   } catch (error) {
     console.log(error);

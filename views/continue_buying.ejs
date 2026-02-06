@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Continue Buying</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="page-title">Confirm Your Order</h2>
+
+    <!-- =========================
+         BOOKS FROM CART (READ ONLY)
+    ========================= -->
+    <div class="order-items">
+
+      <h3>Books in Your Order</h3>
+
+      <% if (cart && cart.length > 0) { %>
+        <% cart.forEach(item => { %>
+
+          <div class="order-item">
+            <p><strong>Book:</strong> <%= item.title %></p>
+            <p><strong>Price:</strong> ₹ <%= item.price %></p>
+            <p><strong>Quantity:</strong> <%= item.quantity %></p>
+            <hr>
+          </div>
+
+        <% }) %>
+      <% } else { %>
+        <p>No items in cart</p>
+      <% } %>
+
+    </div>
+
+    <!-- =========================
+         ORDER SUMMARY
+    ========================= -->
+    <div class="order-summary">
+      <h3>Total Amount</h3>
+      <p class="total-price">₹ <%= totalAmount %></p>
+    </div>
+
+    <!-- =========================
+         CUSTOMER DETAILS FORM
+    ========================= -->
+    <form action="/customer/place-order" method="post" class="form">
+
+      <label>Your Full Name</label>
+      <input type="text" name="customerName" required><br><br>
+
+      <label>Phone Number</label>
+      <input type="text" name="customerPhone" required><br><br>
+
+      <label>Delivery Address</label>
+      <textarea name="deliveryAddress" rows="3" required></textarea><br><br>
+
+      <label>Payment Method</label>
+      <select name="paymentMethod" required>
+        <option value="Dummy">Dummy Payment</option>
+        <option value="COD">Cash on Delivery</option>
+      </select><br><br>
+
+      <button type="submit" class="customer-btn">
+        Place Order
+      </button><br><br>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

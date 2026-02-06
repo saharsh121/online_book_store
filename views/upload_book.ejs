@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload New Book</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="page-title">Upload New Book</h2>
+
+    <form 
+      action="/admin/upload-book" 
+      method="post" 
+      enctype="multipart/form-data"
+      class="form"
+    >
+
+      <div class="form-group">
+        <label>Book ID</label>
+        <input type="text" name="bookId" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Book Title</label>
+        <input type="text" name="title" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Author Name</label>
+        <input type="text" name="author" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Publication</label>
+        <input type="text" name="publication" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" name="category" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Book Description</label>
+        <textarea name="description" rows="4" required></textarea>
+      </div><br>
+
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" name="price" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Available Stock</label>
+        <input type="number" name="stock" required>
+      </div><br>
+
+      <div class="form-group">
+        <label>Book Image</label>
+        <input type="file" name="image" accept="image/*" required>
+      </div><br>
+
+      <button type="submit" class="customer-btn">
+        Upload Book
+      </button>
+
+    </form>
+  </div>
+
+
+</body>
+</html>

@@ -119,6 +119,27 @@ body {
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 15px 30px rgba(79, 197, 229, 0.6);
 }
+/* Admin Buttons (Same style as Customer Button) */
+.secondary-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.6);
+}
+/* Admin Buttons (Same style as Customer Button) */
+.primary-btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+}
+
+.primary-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.6);
+}
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -205,3 +226,57 @@ button:active {
 .btn:focus {
     box-shadow: 0 0 12px rgba(255, 200, 0, 0.6);
 }
+/* =========================
+   Customer Books Horizontal Scroll
+========================= */
+
+.books-section {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar (optional but looks clean) */
+.books-section::-webkit-scrollbar {
+    height: 8px;
+}
+
+.books-section::-webkit-scrollbar-thumb {
+    background: #0072ff;
+    border-radius: 10px;
+}
+
+.book-card {
+    min-width: 220px;   /* IMPORTANT for horizontal layout */
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.book-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.view-cart-section {
+    margin-top: 40px;
+    text-align: center;
+}
+/* =========================
+   BOOK CARD IMAGE FIX
+========================= */
+.book-card img {
+    width: 80%;
+    height: 220px;          /* fixed height */
+    object-fit: cover;      /* crop & fit nicely */
+    border-radius: 10px;
+}
+
+
+
