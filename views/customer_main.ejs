@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Online Book Store</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <h1>Customer Main Page </h1>
+
+  <div class="container">
+
+    <!-- Page Title -->
+    <h2 class="page-title">Online Book Store</h2>
+
+    <!-- =========================
+         SEARCH SECTION
+    ========================= -->
+    <form action="/customer/search" method="get" class="search-form">
+
+      <label>Search Book</label>
+      <input 
+        type="text" 
+        name="query" 
+        placeholder="Search by book name, author or publication"
+        required
+      >
+
+      <button type="submit" class="customer-btn">
+        Search
+      </button>
+
+    </form>
+
+    <!-- =========================
+         BOOKS DISPLAY SECTION
+    ========================= -->
+    <div class="books-section">
+
+      <% if (books && books.length > 0) { %>
+        <% books.forEach(book => { %>
+
+          <div class="book-card">
+            <img src="<%= book.image %>" alt="Book Image">
+
+            <h3 class="book-title"><%= book.title %></h3>
+            <p class="book-author">Author: <%= book.author %></p>
+            <p class="book-publication">Publication: <%= book.publication %></p>
+
+            <!-- ✅ NEW: Description -->
+            
+
+            <!-- ✅ NEW: Price -->
+            <p class="book-price">
+              Price: ₹ <%= book.price %>
+            </p>
+
+            <!-- ✅ FIXED: Add to Cart -->
+            <form action="/customer/add-to-cart/<%= book._id %>" method="post">
+              <button type="submit" class="customer-btn">
+                Add to Cart
+              </button>
+            </form>
+
+          </div>
+
+        <% }) %>
+      <% } else { %>
+
+        <p class="no-books">
+          No books found
+        </p>
+
+      <% } %>
+
+    </div>
+
+    <!-- =========================
+         VIEW CART BUTTON
+    ========================= -->
+    <div class="view-cart-section">
+      <form action="/customer/cart" method="get">
+        <button type="submit" class="customer-btn">
+          View Cart
+        </button>
+      </form>
+    </div>
+
+  </div>
 
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="page-title">Your Cart</h2>
+
+    <!-- =========================
+         CART ITEMS
+    ========================= -->
+    <div class="cart-section">
+
+      <% if (cart && cart.length > 0) { %>
+        <% cart.forEach(item => { %>
+
+          <div class="cart-item">
+
+            <img src="<%= item.image %>" alt="Book Image" class="cart-image">
+
+            <div class="cart-details">
+              <h3><%= item.title %></h3>
+
+              <!-- Book price -->
+              <p>Price: ₹ <%= item.price %></p>
+
+              <!-- Quantity update -->
+              <form action="/customer/update-quantity/<%= item.bookId %>" method="post">
+                <label>Quantity</label>
+                <input 
+                  type="number" 
+                  name="quantity"
+                  value="<%= item.quantity %>"
+                  min="1"
+                >
+                <button type="submit" class="customer-btn">
+                  Update
+                </button>
+              </form>
+
+              <!-- REMOVE BUTTON -->
+              <form action="/customer/remove-from-cart/<%= item.bookId %>" method="post">
+                <button type="submit" class="customer-btn" style="background:#ff4d4d;">
+                  Remove
+                </button>
+              </form>
+
+            </div>
+
+          </div>
+
+        <% }) %>
+      <% } else { %>
+        <p class="no-books">Your cart is empty</p>
+      <% } %>
+
+    </div>
+
+    <!-- =========================
+         TOTAL AMOUNT (ONLY ONCE)
+    ========================= -->
+    <div class="cart-total-section">
+      <h3>Total Amount</h3>
+      <p class="total-price">₹ <%= totalAmount %></p>
+
+      <form action="/customer/continue-buying" method="get">
+  <button type="submit" class="customer-btn">
+    Continue Buying
+  </button>
+</form>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

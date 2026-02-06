@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const router = express.Router();
+const Order = require("../models/Order");
 
 /* Admin Schema */
 const adminSchema = new mongoose.Schema({
@@ -37,6 +38,34 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.send("Admin login error");
+  }
+});
+/* =========================
+   MARK ORDER AS PACKED
+========================= */
+router.post("/mark-packed/:id", async (req, res) => {
+  try {
+    await Order.findByIdAndUpdate(req.params.id, {
+      isPacked: true
+    });
+
+    res.redirect("/admin/orders");
+  } catch (error) {
+    console.log(error);
+    res.send("Error updating order status");
+  }
+});
+
+/* =========================
+   ADMIN - VIEW ORDER DETAILS
+========================= */
+router.get("/orders", async (req, res) => {
+  try {
+    const orders = await Order.find().sort({ createdAt: -1 });
+    res.render("order_book_details", { orders });
+  } catch (error) {
+    console.log(error);
+    res.send("Error loading orders");
   }
 });
 

@@ -26,6 +26,17 @@ mongoose
     console.log("MongoDB connection error:", err);
   });
 
+  const session = require("express-session");
+
+app.use(
+  session({
+    secret: "bookstore_secret",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+
 /* Home page */
 app.get("/", (req, res) => {
   res.render("home");
@@ -42,6 +53,15 @@ app.use("/admin", adminRoutes);
 /* feedback routes */
 const feedbackRoutes = require("./routes/feedbackRoutes");
 app.use("/feedback", feedbackRoutes);
+
+
+const uploadBookRoutes = require("./routes/upload_book");
+app.use("/", uploadBookRoutes);
+
+const customerBookRoutes = require("./routes/customerBookRoutes");
+app.use("/", customerBookRoutes);
+
+
 
 /* Server */
 const PORT = process.env.PORT || 3000;
